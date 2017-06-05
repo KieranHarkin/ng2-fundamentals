@@ -9,7 +9,13 @@ export class EventThumbnailComponent {
     @Input() event: any
     @Output() eventClick = new EventEmitter()
 
+    someProperty: string = "some value";
+
     handleClickMe() {
         this.eventClick.emit('foo');
+    }
+
+    logFoo() {
+        console.log("foo");
     }
 }
