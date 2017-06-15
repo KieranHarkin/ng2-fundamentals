@@ -7,7 +7,7 @@ export class EventService {
     }
 }
 
-    const events = [
+const events = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -317,5 +317,3 @@ export class EventService {
       ]
     }
   ]
-
-}
