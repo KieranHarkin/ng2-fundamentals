@@ -19,9 +19,18 @@ import { EventRouterActivator } from './events/event-details/event-route-activat
     imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
     declarations: [EventsAppComponent, EventsListComponent, 
                     EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, NavBarComponent, Error404Component],
-    providers: [EventService, ToastrService, EventRouterActivator],
+    providers: [EventService, ToastrService, EventRouterActivator,
+    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
+    ],
     bootstrap: [EventsAppComponent]
 })
 export class AppModule {
 
+}
+
+function checkDirtyState(componnet:CreateEventComponent) {
+    if (componnet.isDirty) {
+        return window.confirm("You have not save this event, do you really want to cancel?");
+    }
+    return true;
 }
