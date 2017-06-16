@@ -13,13 +13,14 @@ import { ToastrService } from './common/toastr.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouterActivator } from './events/event-details/event-route-activator.service';
+import { EventListResolver } from './events/events-list-resolver.service';
 
 
 @NgModule({
     imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
     declarations: [EventsAppComponent, EventsListComponent, 
                     EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, NavBarComponent, Error404Component],
-    providers: [EventService, ToastrService, EventRouterActivator,
+    providers: [EventService, ToastrService, EventRouterActivator, EventListResolver,
     {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
     ],
     bootstrap: [EventsAppComponent]
