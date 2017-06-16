@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from '../common/toastr.service';
+import { IEvent } from './shared/index';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ToastrService } from '../common/toastr.service';
             .thumbnail {min-height: 250px;}`]
 })
 export class EventThumbnailComponent {
-    @Input() event: any
+    @Input() event: IEvent
     @Output() eventClick = new EventEmitter()
 
     someProperty: string = "some value";
