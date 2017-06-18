@@ -11,7 +11,8 @@ import {
     CreateEventComponent,
     EventRouterActivator,
     EventListResolver,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
 } from './events/index';
 
 import { appRoutes } from './routes';
@@ -33,7 +34,8 @@ import { AuthService } from './user/auth.service';
         CreateEventComponent, 
         NavBarComponent, 
         Error404Component,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionListComponent
     ],
     providers: [EventService, ToastrService, EventRouterActivator, EventListResolver, AuthService,
     {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
