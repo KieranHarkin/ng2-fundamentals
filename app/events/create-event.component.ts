@@ -11,7 +11,6 @@ import { EventService } from "./shared/event.service";
         .error ::-moz-placeholder {color: #999;}
         .error :-moz-placeholder {color: #999;}
         .error ::-ms-input-placeholder {color: #999;}
-
     `]
 })
 export class CreateEventComponent {
