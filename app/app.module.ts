@@ -16,17 +16,15 @@ import {
     DurationPipe
 } from './events/index';
 
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { appRoutes } from './routes';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
 declare let toastr: Toastr;
-
-
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
