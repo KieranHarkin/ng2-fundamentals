@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ToastrService } from '../common/toastr.service';
 import { IEvent } from './shared/index';
 
 
@@ -17,15 +16,5 @@ export class EventThumbnailComponent {
 
     someProperty: string = "some value";
 
-    constructor(private toastrService: ToastrService){}
 
-    handleClickMe() {
-        this.eventClick.emit('foo');
-    }
-
-    logFoo() {
-        console.log("foo");
-        this.toastrService.info("Logging Some Foo");
-
-    }
 }
