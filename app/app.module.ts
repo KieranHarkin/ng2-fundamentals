@@ -20,7 +20,9 @@ import {
     TOASTR_TOKEN,
     Toastr,
     JQUERY_TOKEN,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    SimpleModalComponent,
+    ModalTriggerDirective
  } from './common/index';
 
 import { appRoutes } from './routes';
@@ -45,9 +47,11 @@ declare let jQuery: Object;
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
+        SimpleModalComponent,
+        ModalTriggerDirective,
         DurationPipe
     ],
-    providers: [EventService, {provide: TOASTR_TOKEN, useValue: toastr}, {provide: JQUERY_TOKEN, useValue: 'jQuery'}, EventRouterActivator, EventListResolver, AuthService,
+    providers: [EventService, {provide: TOASTR_TOKEN, useValue: toastr}, {provide: JQUERY_TOKEN, useValue: jQuery}, EventRouterActivator, EventListResolver, AuthService,
     {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
     ],
     bootstrap: [EventsAppComponent]
