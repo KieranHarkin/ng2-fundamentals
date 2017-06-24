@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { EventService } from "../shared/event.service";
 import { IEvent, ISession } from '../shared/index';
 
@@ -22,7 +22,10 @@ export class EventDetailsComponent implements OnInit {
     constructor(private eventService: EventService, private route: ActivatedRoute){}
 
     ngOnInit() {
-        this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+
+        this.route.params.forEach((params: Params) => {
+            this.resetState(params);
+        })
     }
 
     addSession() {
@@ -39,5 +42,12 @@ export class EventDetailsComponent implements OnInit {
 
     cancelCreatingSession() {
         this.addMode = false;
+    }
+
+    resetState(params: Params) {
+        this.event = this.eventService.getEvent(+params['id']);
+        this.addMode = false;
+        this.filterBy = 'all';
+        this.sortBy = 'votes';
     }
 }
