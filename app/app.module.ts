@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { 
@@ -9,7 +10,7 @@ import {
     EventService,
     EventDetailsComponent,
     CreateEventComponent,
-    EventRouterActivator,
+    EventResolver,
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
@@ -38,7 +39,7 @@ declare let toastr: Toastr;
 declare let jQuery: Object;
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
+    imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)],
     declarations: [
         EventsAppComponent, 
         EventsListComponent, 
@@ -60,7 +61,7 @@ declare let jQuery: Object;
         EventService, 
         {provide: TOASTR_TOKEN, useValue: toastr}, 
         {provide: JQUERY_TOKEN, useValue: jQuery}, 
-        EventRouterActivator, 
+        EventResolver, 
         EventListResolver, 
         AuthService,
         {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},

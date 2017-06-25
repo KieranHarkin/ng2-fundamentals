@@ -23,8 +23,8 @@ export class EventDetailsComponent implements OnInit {
 
     ngOnInit() {
 
-        this.route.params.forEach((params: Params) => {
-            this.resetState(params);
+        this.route.data.forEach((data) => {
+            this.resetState(data);
         })
     }
 
@@ -44,8 +44,8 @@ export class EventDetailsComponent implements OnInit {
         this.addMode = false;
     }
 
-    resetState(params: Params) {
-        this.event = this.eventService.getEvent(+params['id']);
+    resetState(data) {
+        this.event = data['event'];
         this.addMode = false;
         this.filterBy = 'all';
         this.sortBy = 'votes';
