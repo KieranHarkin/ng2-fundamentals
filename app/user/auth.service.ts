@@ -10,7 +10,7 @@ export class AuthService {
     constructor(private _http: Http) {}
 
     loginUser(userName: string, password: string) {
-        let headers = new Headers({'ContentType':'application/json'});
+        let headers = new Headers({'Content-Type':'application/json'});
         let options = new RequestOptions({headers: headers});
 
         let loginInfo = {
@@ -48,5 +48,10 @@ export class AuthService {
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+
+        let headers = new Headers({'Content-Type':'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this._http.put(`/api/users/${this.currentUser.id}`, JSON.stringify(this.currentUser), options);
     }
 }
