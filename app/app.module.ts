@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { EventsListNavbarComponent } from './nav/events-list-navbar.component';
 
 import { 
     EventsListComponent,
@@ -47,6 +48,7 @@ declare let jQuery: Object;
         EventDetailsComponent, 
         CreateEventComponent, 
         NavBarComponent, 
+        EventsListNavbarComponent,
         Error404Component,
         CreateSessionComponent,
         SessionListComponent,

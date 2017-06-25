@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../user/auth.service';
 import { ISession } from '../events/shared/event.model';
 import { EventService } from '../events/index';
+import { EventsListNavbarComponent } from './events-list-navbar.component';
 
 @Component({
     selector: 'nav-bar',
