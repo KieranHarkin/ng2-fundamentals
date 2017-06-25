@@ -13,6 +13,7 @@ import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
         .error ::-moz-placeholder {color: #999;}
         .error :-moz-placeholder {color: #999;}
         .error ::-ms-input-placeholder {color: #999;}
+        .pull-right {float: right;}
 
     `]
 })
@@ -53,6 +54,12 @@ export class ProfileComponent implements OnInit {
 
     cancel() {
         this.navigateToEventPage()
+    }
+
+    logout() {
+        this._authService.logout().subscribe(() => {
+            this._router.navigate(['/user/login']);
+        });
     }
 
     navigateToEventPage() {
