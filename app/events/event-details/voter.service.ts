@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/RX';
-import { ISession } from '../shared/index';
+import { Injectable } from "@angular/core";
+import { Headers, Http, RequestOptions, Response } from "@angular/http";
+import { Observable } from "rxjs/Observable";
+import { ISession } from "../shared/index";
 
 @Injectable()
 export class VoterService {
@@ -10,17 +10,17 @@ export class VoterService {
 
     deleteVoter(eventId: number, session: ISession, userName: string) {
 
-        session.voters = session.voters.filter(voter => voter != userName);
+        session.voters = session.voters.filter((voter) => voter !== userName);
 
         let url = `api/events/${eventId}/sessions/${session.id}/voters/${userName}`;
 
-        this._http.delete(url).catch(this.handleError).subscribe();      
+        this._http.delete(url).catch(this.handleError).subscribe();
     }
 
     addVoter(eventId: number, session: ISession, userName: string) {
 
         let headers = new Headers({
-            'ContentType':'application/json'
+            "ContentType":"application/json"
         });
         let options = new RequestOptions({headers: headers});
 

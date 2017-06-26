@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http , Response, Headers, RequestOptions} from '@angular/http';
-import { Observable } from 'rxjs/RX';
-import { IUser } from './user.model';
+import { Headers , Http, RequestOptions, Response} from "@angular/http";
+import { Observable } from "rxjs/Observable";
+import "/app/rxjs-extensions";
 
 @Injectable()
 export class AuthService {
@@ -10,7 +10,7 @@ export class AuthService {
     constructor(private _http: Http) {}
 
     loginUser(userName: string, password: string) {
-        let headers = new Headers({'Content-Type':'application/json'});
+        let headers = new Headers({"Content-Type":"application/json"});
         let options = new RequestOptions({headers: headers});
 
         let loginInfo = {
@@ -18,7 +18,7 @@ export class AuthService {
             "password" : password
         }
 
-        return this._http.post('./api/login', loginInfo, options).do(response => {
+        return this._http.post("./api/login", loginInfo, options).do(response => {
             if (response) {
                 this.currentUser = <IUser>response.json().user;
             }
@@ -32,7 +32,7 @@ export class AuthService {
     }
 
     checkAuthenticationStatus() {
-        return this._http.get('/api/currentIdentity').map((response: any) => {
+        return this._http.get("/api/currentIdentity").map((response: any) => {
           if (response._body) {
               return response.json();
           }  else {
@@ -49,7 +49,7 @@ export class AuthService {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
 
-        let headers = new Headers({'Content-Type':'application/json'});
+        let headers = new Headers({"Content-Type":"application/json"});
         let options = new RequestOptions({headers: headers});
 
         return this._http.put(`/api/users/${this.currentUser.id}`, JSON.stringify(this.currentUser), options);
@@ -59,9 +59,9 @@ export class AuthService {
 
         this.currentUser = undefined;
 
-        let headers = new Headers({'Content-Type': 'application/json'});
+        let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this._http.post('/api/logout', JSON.stringify({}), options);
+        return this._http.post("/api/logout", JSON.stringify({}), options);
     }
 }
